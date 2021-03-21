@@ -62,7 +62,7 @@ searchInput.addEventListener('input', (e) => {
             <h2>${meal.strMeal}</h2>
             <div class="infos">
               <div>origin : ${meal.strArea}</div>
-              <div>catégory : ${meal.strCategory}</div>
+              <div>category : ${meal.strCategory}</div>
             </div>
             <img src='${meal.strMealThumb}' />
             <p>${meal.strInstructions}</p>
