@@ -6,9 +6,9 @@ const randomMeal = document.getElementById('randomMeal'); //Button d'action pour
 
 let urlSearch = '';
 
-const fetchSearch = async(url) => {
+const fetchSearch = async(url) => { //Async permet de dire que cette action sera excecuté apres le await( ce que l'on attend)
 	meals = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/${url}`)
+    `https://www.themealdb.com/api/json/v1/1/${url}`) //l'url est l'url generique qui peut accueillir un peu tout les fonctions de l'api
     .then(res => res.json())
     .then(res => res.meals) 
 };
@@ -42,15 +42,15 @@ const searchDisplay = async() => {
   };
 
 searchInput.addEventListener('input', (e) => {
-    urlSearch = `search.php?s=${e.target.value}`;
-    searchDisplay();
+    urlSearch = `search.php?s=${e.target.value}`; //Completion de l'url avec le morceau dynamique parametré par l'utilisateur
+    searchDisplay(); //Apres le parametrage de ce que l'utilisateur cherche, la fonction est appelé pour ensuite afficher le contenu recherché
   });
 
 
   //Partie pour afficher des recettes aléatoire par l'action click du boutton "Recette aléatoire"
 
   //Création de la constante permettant de fetch random.php
-  const randomMealDisplay = async() => {
+  const randomMealDisplay = async() => { //On créer une constante qui va attendre la fonction fetchSearch avec comme parametre le random.php
     await fetchSearch('random.php');
   
     results.innerHTML = (
@@ -73,5 +73,5 @@ searchInput.addEventListener('input', (e) => {
     );
   };
   
-  randomMeal.addEventListener('click', randomMealDisplay)
+  randomMeal.addEventListener('click', randomMealDisplay) //lorsque le boutton est cliqué, l'evenement s'effectue, il change donc le contenu de l'affichage random
   randomMealDisplay();
